@@ -1,7 +1,5 @@
 @use 'reset.scss';
-@use 'variables.scss';
 
-// dodac animacje do nava jak sie da i porobic inne pliki pod kolory itp
 // main colors
 $soft-red: hsl(7, 99%, 70%);
 $yellow: hsl(51, 100%, 49%);
@@ -19,14 +17,16 @@ $white: hsl(0, 0%, 100%);
 // font
 $serif-font: 'Fraunces', serif;
 
-
+// main layout
 body {
     font-family: 'Barlow', sans-serif;
     font-size: 18px;
     background-color: #000;
-    height: 500vh;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 .layout {
     height: 100%;
 }
@@ -35,6 +35,7 @@ a {
     text-decoration: none;
 }
 
+// heading
 .page-header {
     display: flex;
     justify-content: center;
@@ -64,7 +65,7 @@ a {
         }
     }
 }
-
+// nav
 .nav {
     position: fixed;
     left: 0;
@@ -72,7 +73,7 @@ a {
     display: flex;
     justify-content: space-between;
     margin: 1.5rem;
-    z-index: 9;
+    z-index: 999;
 }
 
 .menu {
@@ -96,12 +97,13 @@ a {
         }
     }
 
-    .contact-container {
-        position: relative;
-        width: 140px;
-        border-radius: 10rem;
-        background-color: $white;
-    }
+}
+
+.contact-container {
+    position: relative;
+    width: 140px;
+    border-radius: 10rem;
+    background-color: $white;
 }
 
 .burger {
@@ -109,76 +111,203 @@ a {
     cursor: pointer;
 }
 
-.bg-egg {
+//description section
+.egg-img-mobile {
+    width: 100%;
     height: 45vh;
     background-image: url(/images/mobile/image-transform.jpg);
     background-size: cover;
 }
 
+.desktop-only, .egg-img-desktop, .stand-out-img-desktop {
+    display: none;
+}
+
 .info {
-    padding: 3.5rem 0;
+    position: relative;
     background: $white;
     text-align: center;
 
-    .descriptions {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .description-heading {
-        font-family: $serif-font;
-        font-size: 2.5rem;
-    }
-    
-    .description {
-        // text-align: center;   
-        padding: 2rem;
-        line-height: 1.7rem;
-        color: $dark-grayish-blue;
-     }
-     
-     .learn-more-container {
-        position: relative;
-     }
-
-     .yellow::before {
-        content: '';
-        position: absolute;
-        top: 65%;
-        left: -7%;
-        width: calc(100% + 1rem);
-        height: 10px;
-        border-bottom: 8px solid rgba(250,212,0,0.3);
-    }
-
-    .soft-red::before {
-        content: '';
-        position: absolute;
-        top: 65%;
-        left: -7%;
-        width: calc(100% + 1rem);
-        height: 10px;
-        border-bottom: 8px solid rgba(254,120,103,0.3);
-        }
-    }
-
-     a {
+    a {
         font-family: $serif-font;
         text-transform: uppercase;
         color: #000;
-     }
+    }
+}
 
-     .description-img {
+
+.stand-out-img-mobile {
+    width: 100%;
+}
+
+
+
+.descriptions {
+    display: flex;
+    flex-direction: column;
+}
+
+.description-heading {
+    padding: 3.5rem 2rem 0;
+    font-family: $serif-font;
+    font-size: 2.5rem;
+}
+
+.description-text {
+    padding: 2rem;
+    line-height: 1.7rem;
+    color: $dark-grayish-blue;
+}
+     
+.learn-more-container {
+    position: relative;
+    margin-bottom: 3.5rem;
+}
+
+.yellow::before, .soft-red::before {
+    content: '';
+    position: absolute;
+    top: 63%;
+    left: 30%;
+    width: 40%;
+    height: 10px;
+    border-bottom: 8px solid rgba(250,212,0,0.2);
+}
+
+.soft-red::before {
+    border-bottom: 8px solid rgba(254,120,103,0.2);
+ }
+
+ 
+ .description-container-three {
+    background-image: url(/images/mobile/image-graphic-design.jpg);
+}
+    
+.description-container-four {
+    background-image: url(/images/mobile/image-photography.jpg);
+}
+
+.img-bg {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    color: $dark-desaturated;
+}
+    
+.img-heading {
+    position: relative;
+    top: 60%;
+}
+
+.img-description {
+    position: relative;
+    top: 65%;
+    padding: 0 1rem;
+    font-size: 1rem;
+}
+
+
+// testimonials
+.testimonials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $white;
+
+    h2 {
+        padding: 3.5rem 1rem;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        letter-spacing: 0.2rem;
+        font-family: $serif-font;
+        color: $dark-grayish-blue;
+    }
+
+    .pfp {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+    }
+}
+
+.testimonial-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+
+    p {
+        margin-top: 1.5rem;
+        line-height: 2rem;
+        text-align: center;
+        font-size: 1.2rem;
+
+        &:first-of-type {
+            color: $very-dark-grayish-blue;
+        }
+
+        &:last-of-type {
+            font-family: $serif-font;
+            color: $very-dark-desaturated-blue;
+        }
+    }
+
+    span {
+        font-size: 0.8rem;
+        color: $dark-grayish-blue;
+    }
+
+    span::before {
+        content: '\a';
+        white-space: pre;
+    }
+}
+
+// pictures
+.pictures {
+    display: flex;
+    flex-wrap: wrap;
+
+    .mobile-only {
+        width: 50%;
+    }
+}
+
+//footer
+
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 3rem 4rem;
+    align-items: center;
+
+    background-color: $dark-moderate-cyan;
+
+    h3 {
+        font-size: 2.5rem;
+        font-family: $serif-font;
+        color: $very-dark-desaturated-blue;
+    }
+
+    .links {
+        display: flex;
+        justify-content: space-between;
         width: 100%;
-        padding: 3.5rem 0;
-     }
+        padding: 2.5rem 0 4rem;
 
-//dodac animacje
+        a {
+            color: $dark-desaturated;
+        }
+    }
 
+    .icons {
+        display: flex;
+        justify-content: space-around;
+        width: 60%;
+    }
+}
 
-
-
+// //burger menu functionality 
 @media (max-width: 768px) {
     .burger {
         display: block;
@@ -197,7 +326,6 @@ a {
         padding-bottom: 1rem;
         width: 88vw;
         background-color: $white;
-        // transition: 0.3s ease;
     
         a {
             color: $very-dark-desaturated-blue;
@@ -221,43 +349,164 @@ a {
     }
 }
 
+
+//desktop design
+@media (min-width: 1200px) {
+  
+    .page-header {
+        height: 100vh;
+        background-image: url(/images/desktop/image-header.jpg);
+        background-size: cover;
+        background-position: 0 50%;
+
+    }
+
+    //description section
+    .description-container-one {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .description-heading {
+        padding-top: 10rem;
+        text-align: left;
+        font-size: 3rem;
+
+        span::before {
+            content: '\a';
+            white-space: pre;
+        }
+    }
+
+    .description-text {
+
+        width: 60%;
+        font-size: 1rem;
+    }
+
+    .description-container-two {
+        display: flex;
+    }
+
+    .description {
+        width: 50%;
+        text-align: left;
+        padding: 0 5rem;
+    }
+
+    .learn-more-container {
+        padding: 2rem;
+    }
+
+    .yellow::before, .soft-red::before {
+        content: '';
+        position: absolute;
+        top: 2.9rem;
+        left: 1.5rem;
+        width: 9rem;
+        height: 10px;
+        border-bottom: 8px solid rgba(250,212,0,0.2);
+    }
+
+    .soft-red::before {
+        border-bottom: 8px solid rgba(254,120,103,0.2);
+    }
+
+    .egg-img-mobile, .stand-out-img-mobile, .mobile-only {
+        display: none;
+    }
+
+    .egg-img-desktop, .stand-out-img-desktop {
+        display: block;
+        height: 650px;
+        width: 50%;
+    }
+
+    .img-heading, .img-description {
+        top: 50%;
+        text-align: center;
+    }
+
+    .img-description {
+        padding: 3rem 12rem;
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+    .img-container {
+        display: flex;
+    }
+    .description-container-three {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 50%;
+        background-image: url(/images/desktop/image-graphic-design.jpg);
+    }
+
+    .description-container-four {
+        width: 50%;
+        background-image: url(/images/desktop/image-photography.jpg);
+    }
+
+    //testimonials
+
+    .testimonials {
+        position: relative;
+        flex-direction: row;
+        padding: 13rem;
+        h2 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%);
+        }
+
+        .testimonial-container {
+            padding-top: 6rem;
+            
+            p:first-of-type {
+                margin-top: 4rem;
+            }
+    }
+}
+
+
+    // pictures
+    .desktop-only {
+        display: block;
+        width: 25%;
+    }
+
+    //footer 
+    footer {
+
+
+        .links {
+            width: 300px;
+
+            a:hover {
+                color: $white;
+            }
+        }
+
+        .icons {
+            width: 200px; 
+
+        }
+    }
+}
+//class for burger menu functionality
 .visible {
     display: flex;
 }
 
-// ### Primary
+// nav background on scroll class
 
-// - Soft red: hsl(7, 99%, 70%)
-// - Yellow: hsl(51, 100%, 49%)
-// - Dark desaturated cyan (graphic design text): hsl(167, 40%, 24%)
-// - Dark blue (photography text): hsl(198, 62%, 26%)
-// - Dark moderate cyan (footer): hsl(168, 34%, 41%)
-
-// ### Neutral
-
-// - Very dark desaturated blue: hsl(212, 27%, 19%)
-// - Very dark grayish blue: hsl(213, 9%, 39%)
-// - Dark grayish blue: hsl(232, 10%, 55%)
-// - Grayish blue: hsl(210, 4%, 67%)
-// - White: hsl(0, 0%, 100%)
-
-// ## Typography
-
-// ### Body Copy
-
-// - Font size: 18px
-
-// ### Font
-
-// - Family: [Barlow](https://fonts.google.com/specimen/Barlow)
-// - Weights: 600
-// - Family: [Fraunces](https://fonts.google.com/specimen/Fraunces)
-// - Weights: 700, 900
-
-// ## Icons
-
-// We provide the required social icons. But, if you prefer, you can use a font icon library. Some suggestions can be found below:
-
-// - [Font Awesome](https://fontawesome.com)
-// - [IcoMoon](https://icomoon.io)
-// - [Ionicons](https://ionicons.com)
+.nav-bg {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 10vh;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
